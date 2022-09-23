@@ -16,7 +16,7 @@ f.e.
 
 If you found an error, you create a new branch prefixed with **bugfix/**, followed by category and the number of the affected feature
 * bugfix/bash-001-missing-win-newline-handling
-* bugfix/recipe-001-error-in-smpt-filter
+* bugfix/recipe-001-error-in-smtp-filter
 
 If you want to add inline comments or documentation, I suggest we use a third prefix **comment/** 
 
@@ -28,4 +28,5 @@ After merging you should delete your branch.
 I think we should stick to plain *.md files. 
 The syntax may be found here https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 
-##
+## Table of contents 
+- [bash](bash)
