@@ -1,17 +1,20 @@
+import copy
 import json
 import re
 import sys
 from datetime import datetime
-from typing import Dict
+from typing import Dict, List
 
 
 def print_error(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
 
-def convert_headers(log_line: Dict) -> Dict:
+def convert_headers(log_line: Dict, forensics_log: Dict[str, Dict]):
     # template for our requestHeaders dictionary
     request_headers_template = {"Accept-Encoding": [], "Host": [], "Connection": [], "User-Agent": []}
+
+    forensics_log[log_line["requestId"]]["requestHeaders"] = copy.deepcopy(request_headers_template)
     # now we iterate over each key defined in our template
     for key in request_headers_template.keys():
         # first we correct all lowercase keys in the header to match our definition
@@ -21,13 +24,14 @@ def convert_headers(log_line: Dict) -> Dict:
         result = re.search(key + ":(.+?)(\n|[^\n].*$)", cleaned_header)
         try:
             # get the first group
-            request_headers_template[key] = [result.group(1)]
+            if key in forensics_log[log_line["requestId"]]["requestHeaders"]:
+                forensics_log[log_line["requestId"]]["requestHeaders"][key].append(result.group(1))
+            else:
+                forensics_log[log_line["requestId"]]["requestHeaders"][key] = [result.group(1)]
         except AttributeError:
             # if key is not existing we throw an error, but continue with processing the file
             print_error("Error when processing key: " + key + " of request id: " + log_line["requestId"])
             request_headers_template[key] = "Error when parsing"
-    log_line["requestHeaders"] = request_headers_template
-    return log_line
 
 
 def main():
@@ -41,7 +45,10 @@ def main():
         for line in forensics_log_file:
             dict_from_line: Dict = json.loads(line)
             # as mentioned above we get the requestId from the entry and use it as a key and the dict as value
-            forensics_log[dict_from_line["requestId"]] = convert_headers(dict_from_line)
+            forensics_log[dict_from_line["requestId"]] = dict_from_line
+            # now we handle the values in the header
+            convert_headers(dict_from_line, forensics_log)
+
     print(forensics_log["XoKkgH8AAAEAAGciTDAAAACI"])
 
     with open("../001-semistructured-logfile-joiner/access.log", mode="r", encoding="UTF-8") as access_log_file, \
