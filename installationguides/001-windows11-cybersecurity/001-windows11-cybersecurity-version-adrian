@@ -1,0 +1,75 @@
+# Windows 11 Cybersecurity Installation manual - Version Adrian
+> This is an installation manual to set up Windows 11 optimized for Cybersecurity work
+
+## Important Links
+- Winget Installation packages https://winget.run
+
+## OS Installtion
+- Using Newest version of Windows 11 Home (22H2)
+- Install all updates
+- Uninstall any unnecessary preinstalled software if not installed from disk
+
+## OS Settings
+- System power settings -> Screen battery/power 15min/3h - Sleep battery/power 45min/never
+- Display scaling -> 100%
+- Desktop icons -> small
+- Touchpad settings -> Down motion scrolls down
+- Default Browser -> Mozilla Firefox
+- Personalization -> Set static background and static lockscreen
+- Personalization -> Lockscreen Remote "Get fun facts, tips, and more..."
+- Personalization -> Color mode dark
+- Personalization -> Disable Transparancy effects
+
+Taskbar icons
+- Mozilla Firefox
+- Google Chrome
+- Windows Terminal
+- Pycharm
+- Notepad
+
+# Microsoft Store
+- Install all updates
+- Install App Installer (for winget - if not already installed)
+
+# Apps installed by Winget general
+winget install -e --id Google.Chrome
+winget install -e --id Greenshot.Greenshot
+winget install -e --id 7zip.7zip
+
+winget install -e --id Google.Chrome
+winget install -e --id Greenshot.Greenshot
+winget install -e --id 7zip.7zip
+
+# Apps installed by Winget Cybersecurity
+winget install -e --id Insecure.Nmap
+winget install -e --id WiresharkFoundation.Wireshark
+winget install -e --id PortSwigger.BurpSuite.Community
+winget install -e --id brimdata.brim
+winget install -e --id Microsoft.VisualStudioCode
+
+winget install -e --id Insecure.Nmap
+winget install -e --id WiresharkFoundation.Wireshark
+winget install -e --id PortSwigger.BurpSuite.Community
+winget install -e --id brimdata.brim
+winget install -e --id Microsoft.VisualStudioCode
+
+# App installed by Winget Custom selection
+winget install -e --id NordVPN.NordVPN
+winget install -e --id Discord.Discord
+winget install -e --id Zoom.Zoom
+winget install -e --id OpenVPNTechnologies.OpenVPNConnect
+winget install -e --id DominikReichl.KeePass
+winget install -e --id Spotify.Spotify
+
+winget install -e --id NordVPN.NordVPN
+winget install -e --id Discord.Discord
+winget install -e --id Zoom.Zoom
+winget install -e --id OpenVPNTechnologies.OpenVPNConnect
+winget install -e --id DominikReichl.KeePass
+winget install -e --id Spotify.Spotify
+
+
+# Manual installations with Download
+-Pycharm Community edition - https://www.jetbrains.com/pycharm/download/#section=windows - Python and Git Tool
+-Git - Install via Pycharm menu
+
