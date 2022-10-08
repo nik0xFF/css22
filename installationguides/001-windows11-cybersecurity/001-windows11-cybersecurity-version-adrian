@@ -32,21 +32,12 @@ Taskbar icons
 - Install App Installer (for winget - if not already installed)
 
 # Apps installed by Winget general
-winget install -e --id Google.Chrome
-winget install -e --id Greenshot.Greenshot
-winget install -e --id 7zip.7zip
-
+winget install -e --id Mozilla.Firefox
 winget install -e --id Google.Chrome
 winget install -e --id Greenshot.Greenshot
 winget install -e --id 7zip.7zip
 
 # Apps installed by Winget Cybersecurity
-winget install -e --id Insecure.Nmap
-winget install -e --id WiresharkFoundation.Wireshark
-winget install -e --id PortSwigger.BurpSuite.Community
-winget install -e --id brimdata.brim
-winget install -e --id Microsoft.VisualStudioCode
-
 winget install -e --id Insecure.Nmap
 winget install -e --id WiresharkFoundation.Wireshark
 winget install -e --id PortSwigger.BurpSuite.Community
@@ -61,15 +52,25 @@ winget install -e --id OpenVPNTechnologies.OpenVPNConnect
 winget install -e --id DominikReichl.KeePass
 winget install -e --id Spotify.Spotify
 
-winget install -e --id NordVPN.NordVPN
-winget install -e --id Discord.Discord
-winget install -e --id Zoom.Zoom
-winget install -e --id OpenVPNTechnologies.OpenVPNConnect
-winget install -e --id DominikReichl.KeePass
-winget install -e --id Spotify.Spotify
-
 
 # Manual installations with Download
 -Pycharm Community edition - https://www.jetbrains.com/pycharm/download/#section=windows - Python and Git Tool
 -Git - Install via Pycharm menu
+-FoxyProxy for Firefox - https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
+
+
+
+(below this part - not tested yet)
+# Install WSL
+wsl --install
+reboot
+wsl --set-default-version 2
+install kali from store
+wsl --set-version kali-linux 2
+
+to install win kex:
+user documentation: https://www.kali.org/docs/wsl/win-kex-win/
+sudo apt update
+sudo apt install -y kali-win-kex
+sudo apt install -y kali-linux-large
 
